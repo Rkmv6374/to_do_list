@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <title>list</title>
+</head>
+<body>
+    
+<div class="header">
+    <h1><%= kindofday %>! LIST</h1>
+</div>
+<div class="subject">
+<ul id="myUL">
+
+<%listitems.forEach(function(item){%>
+     <form action="/delete" method="post">
+      <p >
+        <input type="checkbox"  name="deletebox" value="<%=item._id%>" onChange ="this.form.submit()" >  
+        <%= item.name %> 
+      </p>
+       <input type="hidden" name="delname" value="<%=kindofday%>">
+    </form>
+<% }) %>
+<ul id="myUL"></ul>
+</div>
+<div class="footer">
+    <form class="" action="/" method="post">
+        <input id="myInput" type="text" name="items" placeholder="item name" autocomplete="off">
+       <button onclick="newElement()"  type = "submit" name="add" class="addBtn" value="<%= kindofday %>" >ADD</button> 
+    </form>
+</div>
+
+<div class="copyright" >
+    copyright 2022 The App List
+</div>
+</body>
+</html>
