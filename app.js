@@ -175,8 +175,13 @@ app.post("/delete",function(req,res)
   
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
-app.listen(3000,function(err)
+
+app.listen(port,function(err)
 {  if(err){
     console.log("the server has not connected!");
      }
